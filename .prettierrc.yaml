@@ -1,0 +1,8 @@
+singleQuote: true
+semi: false
+printWidth: 100
+trailingComma: none
+# 设置缩进为 4 个空格（核心配置）
+tabWidth: 4
+# 强制使用空格而非原生 Tab 字符（确保是空格缩进）
+useTabs: false

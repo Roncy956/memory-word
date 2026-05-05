@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+@plugin "daisyui" {
+    themes:
+        silk --default,
+        sunset --prefersdark;
+}
+
+/* 1. 定义字体 */
+@font-face {
+    font-family: 'LXGW WenKai'; /* 给字体起个名字 */
+    src: url('./fonts/LXGWWenKai-Regular.ttf') format('truetype'); /* 指向刚才放的文件 */
+    font-display: swap;
+}
+
+/* 2. 全局应用 */
+body {
+    /* 优先使用霞鹜文楷，如果没有则回退到系统默认 */
+    font-family: 'LXGW WenKai', 'Microsoft YaHei', system-ui, sans-serif;
+}

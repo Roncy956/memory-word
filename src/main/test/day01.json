@@ -1,0 +1,462 @@
+[
+    {
+        "id": 1,
+        "word": "adjust",
+        "trans": "v.调整 适应"
+    },
+    {
+        "id": 2,
+        "word": "justify",
+        "trans": "v.证明…有理"
+    },
+    {
+        "id": 3,
+        "word": "judgement",
+        "trans": "n.判断力"
+    },
+    {
+        "id": 4,
+        "word": "prejudice",
+        "trans": "n.偏见"
+    },
+    {
+        "id": 5,
+        "word": "laboratory",
+        "trans": "n.实验室"
+    },
+    {
+        "id": 6,
+        "word": "collapse",
+        "trans": "n.崩溃 倒塌 v.倒塌"
+    },
+    {
+        "id": 7,
+        "word": "select",
+        "trans": "v.选择 a.优等的"
+    },
+    {
+        "id": 8,
+        "word": "selection",
+        "trans": "n.选择 挑选"
+    },
+    {
+        "id": 9,
+        "word": "neglect",
+        "trans": "v.忽略 忽视 n.忽视"
+    },
+    {
+        "id": 10,
+        "word": "collection",
+        "trans": "n.收藏品 收集"
+    },
+    {
+        "id": 11,
+        "word": "collective",
+        "trans": "a.集体的 共同的"
+    },
+    {
+        "id": 12,
+        "word": "lecture",
+        "trans": "n.讲座 演讲"
+    },
+    {
+        "id": 13,
+        "word": "religion",
+        "trans": "n.宗教 教派"
+    },
+    {
+        "id": 14,
+        "word": "religious",
+        "trans": "a.宗教的"
+    },
+    {
+        "id": 15,
+        "word": "legitimate",
+        "trans": "a.合法的 合理的"
+    },
+    {
+        "id": 16,
+        "word": "illegal",
+        "trans": "a.非法的 违法的"
+    },
+    {
+        "id": 17,
+        "word": "legislation",
+        "trans": "n.立法 法规"
+    },
+    {
+        "id": 18,
+        "word": "liberal",
+        "trans": "a.自由的 思想开明的"
+    },
+    {
+        "id": 19,
+        "word": "license",
+        "trans": "n.许可证 执照"
+    },
+    {
+        "id": 20,
+        "word": "limit",
+        "trans": "n.限度 极限 v.限制 限定"
+    },
+    {
+        "id": 21,
+        "word": "limited",
+        "trans": "a.有限的"
+    },
+    {
+        "id": 22,
+        "word": "eliminate",
+        "trans": "v.清除 消除"
+    },
+    {
+        "id": 23,
+        "word": "literature",
+        "trans": "n.文学 文学作品 文献"
+    },
+    {
+        "id": 24,
+        "word": "literary",
+        "trans": "a.文学的"
+    },
+    {
+        "id": 25,
+        "word": "locate",
+        "trans": "v.确定…的准确地点 创办于"
+    },
+    {
+        "id": 26,
+        "word": "location",
+        "trans": "n.地方 地点"
+    },
+    {
+        "id": 27,
+        "word": "logical",
+        "trans": "a.符合逻辑的"
+    },
+    {
+        "id": 28,
+        "word": "reluctant",
+        "trans": "a.不情愿的"
+    },
+    {
+        "id": 29,
+        "word": "pollution",
+        "trans": "n.污染"
+    },
+    {
+        "id": 30,
+        "word": "analyse",
+        "trans": "v.分析"
+    },
+    {
+        "id": 31,
+        "word": "analysis",
+        "trans": "n.分析 分析结果"
+    },
+    {
+        "id": 32,
+        "word": "permanent",
+        "trans": "a.永久的 长久的"
+    },
+    {
+        "id": 33,
+        "word": "maintain",
+        "trans": "v.维持 保持"
+    },
+    {
+        "id": 34,
+        "word": "management",
+        "trans": "n.经营 管理 管理部门"
+    },
+    {
+        "id": 35,
+        "word": "majority",
+        "trans": "n.大多数"
+    },
+    {
+        "id": 36,
+        "word": "demand",
+        "trans": "n.要求 v.强烈要求 需要"
+    },
+    {
+        "id": 37,
+        "word": "remark",
+        "trans": "n.意见 评论 言论"
+    },
+    {
+        "id": 38,
+        "word": "remarkable",
+        "trans": "a.显著的 非凡的"
+    },
+    {
+        "id": 39,
+        "word": "master",
+        "trans": "v.掌握 n.大师"
+    },
+    {
+        "id": 40,
+        "word": "mechanism",
+        "trans": "n.方法 机制"
+    },
+    {
+        "id": 41,
+        "word": "mechanical",
+        "trans": "a.机械的 呆板的"
+    },
+    {
+        "id": 42,
+        "word": "machinery",
+        "trans": "n.机器 机械"
+    },
+    {
+        "id": 43,
+        "word": "medical",
+        "trans": "a.医学的 医疗的"
+    },
+    {
+        "id": 44,
+        "word": "immediate",
+        "trans": "a.直接的 急迫的 紧急的"
+    },
+    {
+        "id": 45,
+        "word": "medicine",
+        "trans": "n.药 药物 医学 医疗"
+    },
+    {
+        "id": 46,
+        "word": "comment",
+        "trans": "n.评论 v.评论 发表意见"
+    },
+    {
+        "id": 47,
+        "word": "mental",
+        "trans": "a.心理上的 精神上的"
+    },
+    {
+        "id": 48,
+        "word": "commercial",
+        "trans": "a.商业的 n.商业广告"
+    },
+    {
+        "id": 49,
+        "word": "emerge",
+        "trans": "v.显现 出现"
+    },
+    {
+        "id": 50,
+        "word": "immigrant",
+        "trans": "n.移民 外侨"
+    },
+    {
+        "id": 51,
+        "word": "military",
+        "trans": "a.军事的 军用的"
+    },
+    {
+        "id": 52,
+        "word": "diminish",
+        "trans": "v.减少 削弱"
+    },
+    {
+        "id": 53,
+        "word": "minimum",
+        "trans": "a.最低的 n.最少量"
+    },
+    {
+        "id": 54,
+        "word": "administration",
+        "trans": "n.政府 管理"
+    },
+    {
+        "id": 55,
+        "word": "admire",
+        "trans": "v.钦佩 赞赏"
+    },
+    {
+        "id": 56,
+        "word": "admit",
+        "trans": "v.承认"
+    },
+    {
+        "id": 57,
+        "word": "commit",
+        "trans": "v.犯（罪） 承诺"
+    },
+    {
+        "id": 58,
+        "word": "compromise",
+        "trans": "n.妥协 v.妥协"
+    },
+    {
+        "id": 59,
+        "word": "admission",
+        "trans": "n.承认 准许加入 进入权"
+    },
+    {
+        "id": 60,
+        "word": "dismiss",
+        "trans": "v.摒弃 开除 解雇"
+    },
+    {
+        "id": 61,
+        "word": "permission",
+        "trans": "n.准许 许可"
+    },
+    {
+        "id": 62,
+        "word": "committee",
+        "trans": "n.委员会"
+    },
+    {
+        "id": 63,
+        "word": "mission",
+        "trans": "n.任务 使命"
+    },
+    {
+        "id": 64,
+        "word": "commission",
+        "trans": "n.委员会 v.委托"
+    },
+    {
+        "id": 65,
+        "word": "mode",
+        "trans": "n.方式 方法"
+    },
+    {
+        "id": 66,
+        "word": "commodity",
+        "trans": "n.商品"
+    },
+    {
+        "id": 67,
+        "word": "monitor",
+        "trans": "v.监控 监督 n.监控器"
+    },
+    {
+        "id": 68,
+        "word": "demonstrate",
+        "trans": "v.证明 表明 示威 游行"
+    },
+    {
+        "id": 69,
+        "word": "promote",
+        "trans": "v.促进 推动 推销"
+    },
+    {
+        "id": 70,
+        "word": "motor",
+        "trans": "n.汽车 发动机 a.由发动机推动的"
+    },
+    {
+        "id": 71,
+        "word": "remove",
+        "trans": "v.移开 去掉 去除"
+    },
+    {
+        "id": 72,
+        "word": "amount",
+        "trans": "n.数量 数额"
+    },
+    {
+        "id": 73,
+        "word": "prompt",
+        "trans": "v.促使 激起 a.迅速的"
+    },
+    {
+        "id": 74,
+        "word": "immune",
+        "trans": "a.受保护 免除"
+    },
+    {
+        "id": 75,
+        "word": "mysterious",
+        "trans": "a.神秘的"
+    },
+    {
+        "id": 76,
+        "word": "natural",
+        "trans": "a.自然的 正常的"
+    },
+    {
+        "id": 77,
+        "word": "connection",
+        "trans": "n.联系 关联"
+    },
+    {
+        "id": 78,
+        "word": "nervous",
+        "trans": "a.焦虑的"
+    },
+    {
+        "id": 79,
+        "word": "normal",
+        "trans": "a.正常的"
+    },
+    {
+        "id": 80,
+        "word": "enormous",
+        "trans": "a.巨大的"
+    },
+    {
+        "id": 81,
+        "word": "notice",
+        "trans": "v.注意到 n.注意"
+    },
+    {
+        "id": 82,
+        "word": "notion",
+        "trans": "n.观念 理解"
+    },
+    {
+        "id": 83,
+        "word": "ignore",
+        "trans": "v.忽视"
+    },
+    {
+        "id": 84,
+        "word": "announce",
+        "trans": "v.宣布 宣告"
+    },
+    {
+        "id": 85,
+        "word": "innovation",
+        "trans": "n.创新 改革"
+    },
+    {
+        "id": 86,
+        "word": "nuclear",
+        "trans": "a.原子核的 核能的"
+    },
+    {
+        "id": 87,
+        "word": "obesity",
+        "trans": "n.肥胖"
+    },
+    {
+        "id": 88,
+        "word": "obscure",
+        "trans": "a.无名的 费解的 v.使费解"
+    },
+    {
+        "id": 89,
+        "word": "operation",
+        "trans": "n.经营 业务 手术"
+    },
+    {
+        "id": 90,
+        "word": "operate",
+        "trans": "v.运转 经营 动手术"
+    },
+    {
+        "id": 91,
+        "word": "operator",
+        "trans": "n.经营者 操作员"
+    },
+    {
+        "id": 92,
+        "word": "option",
+        "trans": "n.选择 可选择的事物"
+    }
+]
