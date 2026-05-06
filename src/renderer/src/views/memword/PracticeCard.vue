@@ -43,9 +43,9 @@ const emit = defineEmits([
 </script>
 
 <template>
-    <div class="main">
-        <div class="card bg-base-200 w-full shadow-sm">
-            <div class="card-body h-full flex-row items-center gap-6">
+    <div class="flex flex-col justify-center items-center h-full w-full gap-10">
+        <div class="card bg-base-200 w-6/8 min-w-200 shadow-sm flex flex-col gap-50">
+            <div class="card-body w-full flex-row items-center gap-6">
                 <div class="badge badge-neutral">
                     {{ currentIndex + 1 - initIndex }}/{{ groupSize }}
                 </div>
@@ -60,42 +60,23 @@ const emit = defineEmits([
             </div>
         </div>
 
-        <div class="card bg-base-200 w-full h-full shadow-sm">
-            <div class="card-body h-full flex-col gap-10" @click="emit('speak', word)">
+        <div class="card bg-base-200 w-6/8 min-w-200 min-h-100 h-3/5 flex flex-col items-between shadow-sm">
+            <div class="card-body flex flex-col justify-between" @click="emit('speak', word)">
                 <h2 class="card-title justify-center text-5xl">{{ word }}</h2>
                 <h2 class="card-title justify-center text-4xl whitespace-pre-wrap">
                     {{ showTrans ? translation : '' }}
                 </h2>
             </div>
-            <div class="card-body">
-                <div class="navbar">
-                    <div class="navbar-start">
-                        <button class="btn btn-error w-40" @click="emit('unknown')">
-                            Don't Know
-                        </button>
-                    </div>
-                    <div v-if="!showTrans" class="navbar-center">
-                        <button class="btn btn-info w-40" @click="emit('show-translation')">
-                            Show Translation
-                        </button>
-                    </div>
-                    <div class="navbar-end">
-                        <button class="btn btn-info w-40" @click="emit('next-word')">Next</button>
-                    </div>
-                </div>
+            <div class="card-body px-10 pb-10 flex flex-row justify-between items-end">
+                <button class="btn btn-error w-40" @click="emit('unknown')">Don't Know</button>
+
+                <button class="btn btn-info w-40" @click="emit('show-translation')">
+                    Show Translation
+                </button>
+                <button class="btn btn-info w-40" @click="emit('next-word')">Next</button>
             </div>
         </div>
     </div>
 </template>
 
-<style scoped>
-.main {
-    display: flex;
-    flex: 1;
-    margin: 50px 100px 80px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-</style>
+<style scoped></style>

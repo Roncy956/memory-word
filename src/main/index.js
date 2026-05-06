@@ -9,10 +9,10 @@ import { appStore } from './utils/dataStore'
 const createWindow = () => {
     const win = new BrowserWindow({
         frame: false,
-        minWidth: 1000, // 最小宽度 600px
-        minHeight: 700, // 最小高度 400px
-        width: 1000,
-        height: 700,
+        minWidth: 1100, // 最小宽度 600px
+        minHeight: 680, // 最小高度 400px
+        width: 1100,
+        height: 680,
         webPreferences: {
             nodeIntegration: false, // 禁用 Node.js 集成，提高安全性
             contextIsolation: true, // 启用上下文隔离，必须配合 preload 使用
