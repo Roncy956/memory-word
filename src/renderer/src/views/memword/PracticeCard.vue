@@ -60,8 +60,10 @@ const emit = defineEmits([
             </div>
         </div>
 
-        <div class="card bg-base-200 w-6/8 min-w-200 min-h-100 h-3/5 flex flex-col items-between shadow-sm">
-            <div class="card-body flex flex-col justify-between" @click="emit('speak', word)">
+        <div
+            class="card bg-base-200 w-6/8 min-w-200 min-h-100 h-3/5 flex flex-col items-between shadow-sm"
+        >
+            <div class="pt-8 card-body flex flex-col justify-between" @click="emit('speak', word)">
                 <h2 class="card-title justify-center text-5xl">{{ word }}</h2>
                 <h2 class="card-title justify-center text-4xl whitespace-pre-wrap">
                     {{ showTrans ? translation : '' }}
