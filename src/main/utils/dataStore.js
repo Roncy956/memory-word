@@ -57,6 +57,7 @@ export const appStore = () => {
 
             // 确保目录存在
             await fs.mkdir(HISTORY_DATA_PATH, { recursive: true })
+            console.log(data)
 
             // 存储
             await fs.writeFile(history_json_path, JSON.stringify(data, null, 2), 'utf-8')

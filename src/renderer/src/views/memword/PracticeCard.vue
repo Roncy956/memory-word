@@ -44,7 +44,7 @@ const emit = defineEmits([
 
 <template>
     <div class="flex flex-col justify-center items-center h-full w-full gap-10">
-        <div class="card bg-base-200 w-6/8 min-w-200 shadow-sm flex flex-col gap-50">
+        <div class="card bg-base-200 w-5/8 min-w-200 shadow-sm flex flex-col gap-50">
             <div class="card-body w-full flex-row items-center gap-6">
                 <div class="badge badge-neutral">
                     {{ currentIndex + 1 - initIndex }}/{{ groupSize }}
@@ -61,7 +61,7 @@ const emit = defineEmits([
         </div>
 
         <div
-            class="card bg-base-200 w-6/8 min-w-200 min-h-100 h-3/5 flex flex-col items-between shadow-sm"
+            class="card bg-base-200 w-5/8 min-w-200 min-h-100 h-3/5 flex flex-col items-between shadow-sm"
         >
             <div class="pt-8 card-body flex flex-col justify-between" @click="emit('speak', word)">
                 <h2 class="card-title justify-center text-5xl">{{ word }}</h2>

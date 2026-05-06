@@ -11,6 +11,7 @@ const isMaximized = ref(false)
 const words = ref([])
 
 const groupId = ref()
+const groupSize = ref()
 
 const tabs = [
     { name: '主页', path: '/homepage' },
@@ -65,7 +66,9 @@ onMounted(async () => {
     isMaximized.value = await window.setWindow.isMaximized()
     window.addEventListener('resize', handleResize)
 
-    groupId.value = await window.saveHistory.loadOptionJson()
+    const data = await window.saveHistory.loadOptionJson()
+    groupId.value = data.groupId
+    groupSize.value = data.groupSize
 
     words.value = await window.saveWords.loadWordJson('words.json')
 
@@ -108,7 +111,14 @@ onMounted(async () => {
         </div>
     </div>
 
-    <RouterView :words="words" :history-group-id="groupId" @get-words="emitGetWords" />
+    <RouterView
+        :words="words"
+        :history-group-id="groupId"
+        :history-group-size="groupSize"
+        @get-words="emitGetWords"
+        @get-group-size="groupSize = $event"
+        @get-group-id="groupId = $event"
+    />
 </template>
 
 <style scoped></style>

@@ -28,16 +28,20 @@ const props = defineProps({
     historyGroupId: {
         type: Number,
         required: true
+    },
+    historyGroupSize: {
+        type: Number,
+        required: true
     }
 })
-const emit = defineEmits(['get-words'])
+const emit = defineEmits(['get-words', 'get-group-id', 'get-group-size'])
 
 function optionWords(data) {
     groupId.value = data
     index.value = (data - 1) * groupSize.value
     displayedWords.value = memoryWords.value.slice(index.value, index.value + groupSize.value)
     finishWordCount.value = groupSize.value * (groupId.value - 1)
-    window.saveHistory.saveOptionJson(toRaw(groupId.value))
+    saveHistory()
 }
 
 function showTotalWords() {
@@ -56,8 +60,18 @@ function toAddWords() {
 
 function emitNextGroup() {
     groupId.value = groupId.value + 1
-    window.saveHistory.saveOptionJson(toRaw(groupId.value))
     index.value = (groupId.value - 1) * groupSize.value
+    saveHistory()
+}
+
+async function saveHistory() {
+    const data = {
+        groupId: groupId.value,
+        groupSize: groupSize.value
+    }
+    window.saveHistory.saveOptionJson(toRaw(data))
+    emit('get-group-id', groupId.value)
+    emit('get-group-size', groupSize.value)
 }
 
 async function updateVis() {
@@ -81,11 +95,10 @@ watch(
     }
 )
 
-
 onMounted(() => {
     updateVis()
     groupId.value = props.historyGroupId
-    console.log(props.historyGroupId)
+    groupSize.value = props.historyGroupSize
     optionWords(groupId.value)
 })
 
@@ -132,7 +145,7 @@ function openWordModal() {
             </div>
 
             <!-- 3. 主内容区：左右比例 2/3 和 1/3，完美分布 -->
-            <div class="w-full flex flex-row items-stretch gap-5 mt-4 h-1/2">
+            <div class="px-20 w-full flex flex-row items-stretch gap-5 mt-4 h-1/2">
                 <!-- 左侧：Begin 区域 占 3/5 -->
                 <div
                     class="flex-1 h-full flex flex-col items-center justify-center text-center space-y-6 bg-base-200 rounded-box p-8 shadow-sm"
