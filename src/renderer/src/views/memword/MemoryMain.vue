@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch, toRaw } from 'vue'
 import MemoryWord from './MemoryWord.vue'
 import ProgressCard from '../../components/ProgressCard.vue'
 import GroupSelector from './GroupSelector.vue'
@@ -10,34 +10,44 @@ const router = useRouter()
 const groupSize = ref(20)
 
 const isMemory = ref(false)
+const isShowWords = ref(false)
 const index = ref(0)
-const groupId = ref(1)
+const groupId = ref(20)
 const finishWordCount = ref(12)
 const totalWordCount = ref(2000)
 const memoryWords = ref([])
+const displayedWords = ref([])
+
+const groupAmount = ref(0)
 
 const props = defineProps({
     words: {
         type: Array,
         default: null
+    },
+    historyGroupId: {
+        type: Number,
+        required: true
     }
 })
+const emit = defineEmits(['get-words'])
 
 function optionWords(data) {
     groupId.value = data
     index.value = (data - 1) * groupSize.value
+    displayedWords.value = memoryWords.value.slice(index.value, index.value + groupSize.value)
+    finishWordCount.value = groupSize.value * (groupId.value - 1)
+    window.saveHistory.saveOptionJson(toRaw(groupId.value))
 }
 
-function beginMemory() {
-    if (memoryWords.value.length === 0) {
-        document.getElementById('my_modal_2').showModal()
-        return
-    }
-    isMemory.value = true
+function showTotalWords() {
+    displayedWords.value = memoryWords.value
+    isShowWords.value = true
 }
 
-function returnMemMain() {
-    isMemory.value = false
+function closeDialog() {
+    isShowWords.value = false
+    optionWords(groupId.value)
 }
 
 function toAddWords() {
@@ -46,20 +56,41 @@ function toAddWords() {
 
 function emitNextGroup() {
     groupId.value = groupId.value + 1
+    window.saveHistory.saveOptionJson(toRaw(groupId.value))
     index.value = (groupId.value - 1) * groupSize.value
 }
 
-onMounted(() => {
+async function updateVis() {
     memoryWords.value = props.words
-    optionWords(80)
+    groupAmount.value = Math.ceil(memoryWords.value.length / groupSize.value)
+    totalWordCount.value = memoryWords.value.length
+}
+
+watch(
+    () => props.words,
+    () => {
+        updateVis()
+    }
+)
+
+watch(
+    () => groupSize.value,
+    async () => {
+        await updateVis()
+        finishWordCount.value = groupSize.value * (groupId.value - 1)
+    }
+)
+
+
+onMounted(() => {
+    updateVis()
+    groupId.value = props.historyGroupId
+    console.log(props.historyGroupId)
+    optionWords(groupId.value)
 })
 
-// 为了解决安全
 function openWordModal() {
-    const modal = document.getElementById('my_modal_2')
-    if (modal) {
-        modal.showModal()
-    }
+    isShowWords.value = true
 }
 </script>
 
@@ -69,19 +100,22 @@ function openWordModal() {
         :init-index="index"
         :words="memoryWords"
         :group-size="groupSize"
-        @exit-memory="returnMemMain"
+        @exit-memory="isMemory = false"
         @next-group="emitNextGroup"
     />
     <div v-else class="hero bg-base-100 h-full w-full">
         <!-- 主容器：垂直弹性布局，占满高度，均匀分配空间 -->
         <div class="hero-content flex-col w-full max-w-6xl mx-auto h-full space-y-8">
             <!-- 1. 进度条（顶部固定区域） -->
-            <div class="w-full flex flex-row justify-center">
+            <div class="w-full flex flex-row justify-center items-center">
                 <ProgressCard
-                    class="w-4/5"
+                    class="w-3/5"
                     :total-count="totalWordCount"
                     :finish-count="finishWordCount"
                 />
+                <label for="my_modal_7" class="btn btn-neutral w-40" @click="showTotalWords">
+                    Display all words
+                </label>
             </div>
 
             <!-- 2. 滑块 + 数值（水平居中，比例分布） -->
@@ -89,7 +123,7 @@ function openWordModal() {
                 <input
                     v-model.number="groupSize"
                     type="range"
-                    min="0"
+                    min="1"
                     max="50"
                     class="range w-3/5"
                     step="1"
@@ -108,26 +142,38 @@ function openWordModal() {
 
                     <!-- 按钮组 -->
                     <div class="flex flex-wrap gap-4 justify-center mt-4">
-                        <button class="btn btn-warning w-40" @click="openWordModal">
-                            Show Words
-                        </button>
-                        <button class="btn btn-info w-40" @click="beginMemory">Begin</button>
+                        <label for="my_modal_7" class="btn btn-warning w-40" @click="openWordModal">
+                            open modal
+                        </label>
+                        <button class="btn btn-info w-40" @click="isMemory = true">Begin</button>
                     </div>
                 </div>
 
                 <!-- 右侧：分组选择 占 1/3 -->
-                <GroupSelector :group-id="groupId" @select-group="optionWords" />
+                <GroupSelector
+                    :group-amount="groupAmount"
+                    :group-id="groupId"
+                    @select-group="optionWords"
+                />
             </div>
         </div>
     </div>
 
-    <!-- 弹窗：保持不动 -->
-    <dialog id="my_modal_2" class="modal">
-        <div v-if="words.length !== 0" class="modal-box w-[90%] max-w-4xl max-h-[80vh]">
+    <!--    弹窗-->
+    <input id="my_modal_7" type="checkbox" class="modal-toggle" />
+    <div class="modal" role="dialog">
+        <div v-if="isShowWords" class="modal-box w-[90%] max-w-4xl max-h-[80vh]">
             <ul class="list bg-base-200 rounded-box shadow-md">
-                <li v-for="item in props.words" :key="item.word" class="list-row grid grid-cols-2">
+                <li
+                    v-for="item in displayedWords"
+                    :key="item.word"
+                    class="list-row grid grid-cols-2"
+                >
                     <div class="text-2xl font-bold tabular-nums">{{ item.word }}</div>
-                    <div class="text-2xl tabular-nums">{{ item.trans }}</div>
+                    <!-- 加一个 white-space:pre-wrap 即可 -->
+                    <div class="text-2xl tabular-nums whitespace-pre-wrap">
+                        {{ item.translation }}
+                    </div>
                 </li>
             </ul>
         </div>
@@ -135,10 +181,9 @@ function openWordModal() {
             <h1>No words</h1>
             <div class="btn w-40" @click="toAddWords">To add words</div>
         </div>
-        <form method="dialog" class="modal-backdrop">
-            <button>close</button>
-        </form>
-    </dialog>
+
+        <label class="modal-backdrop" for="my_modal_7" @click="closeDialog">Close</label>
+    </div>
 </template>
 
 <style scoped></style>

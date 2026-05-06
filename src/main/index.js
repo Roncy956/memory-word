@@ -3,16 +3,16 @@ import { join } from 'path'
 import { is } from '@electron-toolkit/utils'
 import { WindowControl } from './utils/setWindow.js'
 // import { getVideoList } from './utils/getVideoList'
-// import { initDataStore } from './utils/dataStore'
+import { appStore } from './utils/dataStore'
 // import { setupVideoProtocol } from './utils/readVideo'
 
 const createWindow = () => {
     const win = new BrowserWindow({
         frame: false,
-        minWidth: 900, // 最小宽度 600px
-        minHeight: 600, // 最小高度 400px
-        width: 900,
-        height: 600,
+        minWidth: 1000, // 最小宽度 600px
+        minHeight: 700, // 最小高度 400px
+        width: 1000,
+        height: 700,
         webPreferences: {
             nodeIntegration: false, // 禁用 Node.js 集成，提高安全性
             contextIsolation: true, // 启用上下文隔离，必须配合 preload 使用
@@ -34,7 +34,7 @@ const createWindow = () => {
 
 app.whenReady().then(() => {
     // 初始化数据存储
-    // initDataStore()
+    appStore()
     //
     // setupVideoProtocol() // 注册自定义协议
 

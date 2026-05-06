@@ -63,14 +63,16 @@ const emit = defineEmits([
         <div class="card bg-base-200 w-full h-full shadow-sm">
             <div class="card-body h-full flex-col gap-10" @click="emit('speak', word)">
                 <h2 class="card-title justify-center text-5xl">{{ word }}</h2>
-                <h2 class="card-title justify-center text-4xl">
+                <h2 class="card-title justify-center text-4xl whitespace-pre-wrap">
                     {{ showTrans ? translation : '' }}
                 </h2>
             </div>
             <div class="card-body">
                 <div class="navbar">
                     <div class="navbar-start">
-                        <button class="btn btn-error w-40" @click="emit('unknown')">Don't Know</button>
+                        <button class="btn btn-error w-40" @click="emit('unknown')">
+                            Don't Know
+                        </button>
                     </div>
                     <div v-if="!showTrans" class="navbar-center">
                         <button class="btn btn-info w-40" @click="emit('show-translation')">

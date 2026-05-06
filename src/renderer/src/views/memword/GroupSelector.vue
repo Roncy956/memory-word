@@ -1,8 +1,12 @@
 <script setup>
-import { nextTick } from 'vue'
+import { nextTick, onMounted } from 'vue'
 
 const props = defineProps({
     groupId: {
+        type: Number,
+        required: true
+    },
+    groupAmount: {
         type: Number,
         required: true
     }
@@ -14,7 +18,7 @@ function optionWords(data) {
     emit('select-group', data)
 }
 
-function locationGroup() {
+async function locationGroup() {
     nextTick(() => {
         const targetElement = document.getElementById(`group-${props.groupId}`)
         if (targetElement) {
@@ -25,6 +29,10 @@ function locationGroup() {
         }
     })
 }
+
+onMounted(() => {
+    locationGroup()
+})
 </script>
 
 <template>
@@ -32,15 +40,13 @@ function locationGroup() {
         class="w-85 h-full bg-base-200 rounded-box p-5 shadow-sm flex flex-col items-center"
         style="position: relative; height: 100%; overflow: hidden"
     >
-        <button class="btn btn-primary w-40" @click="locationGroup">Location</button>
+        <div class="flex flex-row items-center justify-between gap-5">
+            <div class="badge badge-neutral">{{ groupAmount }} groups</div>
+            <button class="btn btn-primary w-30" @click="locationGroup">Location</button>
+        </div>
 
         <ul class="list w-full flex flex-col absolute top-20 bottom-5 overflow-y-auto">
-            <li
-                v-for="i in 100"
-                :id="`group-${i}`"
-                :key="i"
-                class="list-row w-full block"
-            >
+            <li v-for="i in groupAmount" :id="`group-${i}`" :key="i" class="list-row w-full block">
                 <div class="flex w-full !justify-between items-center">
                     <div class="text-3xl tabular-nums">Group{{ i }}</div>
                     <div

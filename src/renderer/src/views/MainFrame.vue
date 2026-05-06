@@ -10,6 +10,8 @@ const isMaximized = ref(false)
 
 const words = ref([])
 
+const groupId = ref()
+
 const tabs = [
     { name: '主页', path: '/homepage' },
     { name: '背单词', path: '/memory-word' },
@@ -62,6 +64,11 @@ function emitGetWords(data) {
 onMounted(async () => {
     isMaximized.value = await window.setWindow.isMaximized()
     window.addEventListener('resize', handleResize)
+
+    groupId.value = await window.saveHistory.loadOptionJson()
+
+    words.value = await window.saveWords.loadWordJson('words.json')
+
     await router.push('/homepage')
 })
 </script>
@@ -101,7 +108,7 @@ onMounted(async () => {
         </div>
     </div>
 
-    <RouterView :words="words" @get-words="emitGetWords" />
+    <RouterView :words="words" :history-group-id="groupId" @get-words="emitGetWords" />
 </template>
 
 <style scoped></style>

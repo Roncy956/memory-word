@@ -1,5 +1,4 @@
 <script setup>
-import GetDocxFile from './GetDocxFile.vue'
 import GetJsonFile from './GetJsonFile.vue'
 
 const emit = defineEmits(['get-words'])
@@ -29,9 +28,7 @@ function emitGetWords(data) {
             </div>
 
             <div class="hero-content w-full flex-col">
-                <GetJsonFile>
-
-                </GetJsonFile>
+                <GetJsonFile @get-words="emitGetWords" />
             </div>
 
             <!--            解析docx文件-->

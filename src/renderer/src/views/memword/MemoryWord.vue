@@ -38,7 +38,7 @@ const emit = defineEmits(['exit-memory', 'next-group'])
 // 更新当前的单词和翻译
 function updateWordAndTrans() {
     word.value = memoryWords.value[index.value].word
-    translation.value = memoryWords.value[index.value].trans
+    translation.value = memoryWords.value[index.value].translation
 }
 
 // 返回
