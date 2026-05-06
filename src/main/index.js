@@ -1,4 +1,4 @@
-import { app, BrowserWindow, protocol } from 'electron'
+import { app, BrowserWindow, } from 'electron'
 import { join } from 'path'
 import { is } from '@electron-toolkit/utils'
 import { WindowControl } from './utils/setWindow.js'

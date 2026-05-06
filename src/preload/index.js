@@ -14,12 +14,11 @@ contextBridge.exposeInMainWorld('saveWords', {
     // 暴露保存方法
     saveWordJson: (data) => ipcRenderer.invoke('save-word', data),
     // 暴露读取方法
-    loadWordJson: (name) => ipcRenderer.invoke('load-word', name),
+    loadWordJson: (name) => ipcRenderer.invoke('load-word', name)
 })
 
 contextBridge.exposeInMainWorld('saveHistory', {
-
     saveOptionJson: (data) => ipcRenderer.invoke('save-option', data),
 
-    loadOptionJson: () => ipcRenderer.invoke('load-option'),
+    loadOptionJson: () => ipcRenderer.invoke('load-option')
 })
